@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: "Roboto, sans-serif",
+        wedding: "Great Vibes, sans-serif",
       },
       width: {
         logo: "15%",
