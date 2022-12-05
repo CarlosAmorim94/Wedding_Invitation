@@ -22,20 +22,29 @@ export function MenuMobile() {
       />
       <ul className="flex flex-col m-auto h-full w-full justify-center items-center gap-10">
         <Link
-          href="/"
+          href="#home"
           className="w-11/12 py-4 px-6 rounded-2xl bg-transparent-mobile flex justify-center items-center"
+          onClick={() => {
+            mobile?.setMenuOpen(false);
+          }}
         >
           <li className="text-gold text-3xl font-bold ">Home</li>
         </Link>
         <Link
-          href="/"
+          href="#history"
           className="w-11/12 py-4 px-6 rounded-2xl bg-transparent-mobile flex justify-center items-center"
+          onClick={() => {
+            mobile?.setMenuOpen(false);
+          }}
         >
           <li className="text-gold text-3xl font-bold">História</li>
         </Link>
         <Link
-          href="/"
+          href="#confirm"
           className="w-11/12 py-4 px-6 rounded-2xl bg-transparent-mobile flex justify-center items-center"
+          onClick={() => {
+            mobile?.setMenuOpen(false);
+          }}
         >
           <li className="text-gold text-3xl font-bold">Confirmar</li>
         </Link>

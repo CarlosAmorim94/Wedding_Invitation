@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 html {
+  @apply scroll-smooth;
   -webkit-font-smoothing: antialiased;
 }
 

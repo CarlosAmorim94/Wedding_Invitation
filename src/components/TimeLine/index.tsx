@@ -1,6 +1,8 @@
+import Box from "./Box";
+
 export function TimeLine() {
   return (
-    <>
+    <div id="history">
       <section className="flex w-full flex-col justify-center items-center mt-9">
         <h2 className="font-wedding mb-3 text-white drop-shadow-lg shadow-black text-3xl md:text-5xl">
           Um resumo da nossa
@@ -10,81 +12,46 @@ export function TimeLine() {
         </h2>
       </section>
       <div className="container mx-auto w-full h-full">
-        <div className="relative wrap overflow-hidden p-10 h-full">
+        <div className="relative wrap overflow-hidden p-3 md:p-10 h-full">
           <div className="border-2-2 absolute h-full "></div>
-          {/* <!-- right timeline --> */}
-          <div className="mb-8 flex justify-between items-center w-full right-timeline">
-            <div className="order-1 w-5/12"></div>
-            <div className="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
-              <h1 className="mx-auto font-semibold text-lg text-white">1</h1>
-            </div>
-            <div className="order-1 bg-gray-400 rounded-lg shadow-xl w-5/12 px-6 py-4">
-              <h3 className="mb-3 font-bold text-gray-800 text-xl">
-                Lorem Ipsum
-              </h3>
-              <p className="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-              </p>
-            </div>
-          </div>
 
-          {/* <!-- left timeline --> */}
-          <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
-            <div className="order-1 w-5/12"></div>
-            <div className="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
-              <h1 className="mx-auto text-white font-semibold text-lg">2</h1>
-            </div>
-            <div className="order-1 bg-red-400 rounded-lg shadow-xl w-5/12 px-6 py-4">
-              <h3 className="mb-3 font-bold text-white text-xl">Lorem Ipsum</h3>
-              <p className="text-sm font-medium leading-snug tracking-wide text-white text-opacity-100">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-              </p>
-            </div>
-          </div>
+          <Box
+            side="right"
+            number={1}
+            title="O primeiro olhar"
+            text="O Carlos ficou travado ao ver aqueles olhos verdes naquela linda
+                mulher."
+          />
 
-          {/* <!-- right timeline --> */}
-          <div className="mb-8 flex justify-between items-center w-full right-timeline">
-            <div className="order-1 w-5/12"></div>
-            <div className="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
-              <h1 className="mx-auto font-semibold text-lg text-white">3</h1>
-            </div>
-            <div className="order-1 bg-gray-400 rounded-lg shadow-xl w-5/12 px-6 py-4">
-              <h3 className="mb-3 font-bold text-gray-800 text-xl">
-                Lorem Ipsum
-              </h3>
-              <p className="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-              </p>
-            </div>
-          </div>
+          <Box
+            side="left"
+            number={2}
+            title="Primeira conversa"
+            text="Quem diria? deram match no Tinder e começaram a conversar!"
+          />
 
-          {/* <!-- left timeline --> */}
-          <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
-            <div className="order-1 w-5/12"></div>
-            <div className="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
-              <h1 className="mx-auto text-white font-semibold text-lg">4</h1>
-            </div>
-            <div className="order-1 bg-red-400 rounded-lg shadow-xl w-5/12 px-6 py-4">
-              <h3 className="mb-3 font-bold text-white text-xl">Lorem Ipsum</h3>
-              <p className="text-sm font-medium leading-snug tracking-wide text-white text-opacity-100">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-              </p>
-            </div>
-          </div>
+          <Box
+            side="right"
+            number={3}
+            title="Primeiro encontro"
+            text="No dia 19/01/20 o clássico passeio no shopping e cinema! com
+            muita cerveja é claro!"
+          />
+
+          <Box
+            side="left"
+            number={4}
+            title="Morando juntos"
+            text="O amor é tão grande que decidiram morar juntos em 06/2020"
+          />
+          <Box
+            side="right"
+            number={5}
+            title="Casamento civil"
+            text="No dia 11/06/22 trocaram as alianças e realizaram o casamento no cívil"
+          />
         </div>
       </div>
-    </>
+    </div>
   );
 }

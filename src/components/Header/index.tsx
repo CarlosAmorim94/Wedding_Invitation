@@ -16,17 +16,17 @@ export function Header() {
 
       <nav className="hidden md:block">
         <ul className="flex flex-row justify-between items-center gap-4">
-          <Link href="/">
+          <Link href="#home">
             <li className="text-xl text-white hover:text-gold font-bold drop-shadow-lg shadow-black">
               Home
             </li>
           </Link>
-          <Link href="/">
+          <Link href="#history">
             <li className="text-xl text-white hover:text-gold font-bold drop-shadow-lg shadow-black">
               História
             </li>
           </Link>
-          <Link href="/">
+          <Link href="#confirm">
             <li className="text-xl text-white hover:text-gold font-bold drop-shadow-lg shadow-black">
               Confirmar
             </li>
