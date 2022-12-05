@@ -10,7 +10,7 @@ export function MenuMobile() {
     <div
       className={
         mobile?.menuOpen
-          ? `absolute top-0 bottom-0 right-0 left-0 z-50 bg-transparent backdrop-blur-md `
+          ? `absolute top-0 bottom-0 right-0 w-full left-0 z-50 bg-transparent-mobile backdrop-blur-md `
           : `hidden`
       }
     >
@@ -18,17 +18,26 @@ export function MenuMobile() {
         onClick={() => {
           mobile?.setMenuOpen(false);
         }}
-        className="absolute text-5xl top-0 right-0"
+        className="absolute text-5xl top-4 right-4 text-gold font-bold"
       />
       <ul className="flex flex-col m-auto h-full w-full justify-center items-center gap-10">
-        <Link href="/">
-          <li className="text-black text-3xl font-bold">Home</li>
+        <Link
+          href="/"
+          className="w-11/12 py-4 px-6 rounded-2xl bg-transparent-mobile flex justify-center items-center"
+        >
+          <li className="text-gold text-3xl font-bold ">Home</li>
         </Link>
-        <Link href="/">
-          <li className="text-black text-3xl font-bold">História</li>
+        <Link
+          href="/"
+          className="w-11/12 py-4 px-6 rounded-2xl bg-transparent-mobile flex justify-center items-center"
+        >
+          <li className="text-gold text-3xl font-bold">História</li>
         </Link>
-        <Link href="/">
-          <li className="text-black text-3xl font-bold">Confirmar</li>
+        <Link
+          href="/"
+          className="w-11/12 py-4 px-6 rounded-2xl bg-transparent-mobile flex justify-center items-center"
+        >
+          <li className="text-gold text-3xl font-bold">Confirmar</li>
         </Link>
       </ul>
     </div>

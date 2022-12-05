@@ -10,6 +10,12 @@ module.exports = {
       width: {
         logo: "15%",
       },
+      colors: {
+        transparent: {
+          mobile: "rgba(0,0,0, .5)",
+        },
+        gold: "#f7bb54",
+      },
     },
   },
   plugins: [],

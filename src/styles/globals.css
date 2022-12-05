@@ -5,3 +5,7 @@
 html {
   -webkit-font-smoothing: antialiased;
 }
+
+:root {
+  --swiper-navigation-color: #f7bb54;
+}

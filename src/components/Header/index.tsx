@@ -17,17 +17,17 @@ export function Header() {
       <nav className="hidden md:block">
         <ul className="flex flex-row justify-between items-center gap-4">
           <Link href="/">
-            <li className="text-slate-300 hover:text-white font-bold drop-shadow-lg shadow-black">
+            <li className="text-xl text-white hover:text-gold font-bold drop-shadow-lg shadow-black">
               Home
             </li>
           </Link>
           <Link href="/">
-            <li className="text-slate-300 hover:text-white font-bold drop-shadow-lg shadow-black">
+            <li className="text-xl text-white hover:text-gold font-bold drop-shadow-lg shadow-black">
               História
             </li>
           </Link>
           <Link href="/">
-            <li className="text-slate-300 hover:text-white font-bold drop-shadow-lg shadow-black">
+            <li className="text-xl text-white hover:text-gold font-bold drop-shadow-lg shadow-black">
               Confirmar
             </li>
           </Link>
