@@ -1,14 +1,40 @@
-import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+type FormType = {
+  first_name: string;
+  last_name: string;
+  phone: number;
+  invite: string;
+};
 
 export default function Form() {
+  const schema = yup.object().shape({
+    first_name: yup.string().required("Nome obrigatório"),
+    last_name: yup.string().required("Sobrenome obrigatório"),
+    phone: yup.number().required("Telefone obrigatório"),
+    invite: yup.string().required("Seecione o tipo"),
+  });
+
+  const { register, handleSubmit, formState, reset } = useForm<FormType>({
+    resolver: yupResolver(schema),
+  });
+  const { errors } = formState;
+
+  const onSubmitHandler = (data: FormType) => {
+    console.log(data);
+    reset(data);
+  };
+
   return (
     <div id="confirm">
       <section className="flex w-full flex-col justify-center items-center mt-5 mb-5">
-        <h2 className="font-wedding  text-white drop-shadow-lg shadow-black text-3xl md:text-6xl">
+        <h2 className="font-wedding  text-white drop-shadow-lg shadow-black text-4xl md:text-6xl">
           Confirmação de presença
         </h2>
       </section>
-      <form>
+      <form onSubmit={handleSubmit(onSubmitHandler)}>
         <div className="grid gap-6 mb-6 md:grid-cols-2">
           <div>
             <label
@@ -22,7 +48,7 @@ export default function Form() {
               id="first_name"
               className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
               placeholder="Ex: Carlos, Ex: Danielle"
-              required
+              {...register("first_name", { required: true })}
             />
           </div>
           <div>
@@ -30,14 +56,14 @@ export default function Form() {
               htmlFor="last_name"
               className="block mb-2 font-bold text-base text-gray-800 drop-shadow-lg shadow-black "
             >
-              Ultimo nome
+              Sobrenome
             </label>
             <input
               type="text"
               id="last_name"
               className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
               placeholder="Ex: Amorim"
-              required
+              {...register("last_name", { required: true })}
             />
           </div>
 
@@ -53,23 +79,24 @@ export default function Form() {
               id="phone"
               className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
               placeholder="Ex: (14)98765-4321"
-              required
+              {...register("phone", { required: true })}
             />
           </div>
           <div>
             <label
-              htmlFor="countries"
+              htmlFor="inviteType"
               className="block mb-2 font-bold text-base text-gray-800 drop-shadow-lg shadow-black "
             >
               Tipo de Convidado
             </label>
             <select
-              id="countries"
+              id="inviteType"
               className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
+              {...register("invite", { required: true })}
             >
-              <option selected>Selecione</option>
-              <option value="US">Padrinho/Madrinha</option>
-              <option value="CA">Convidado</option>
+              <option selected> </option>
+              <option value="padrinho/madrinha">Padrinho/Madrinha</option>
+              <option value="convidado">Convidado</option>
             </select>
           </div>
 
