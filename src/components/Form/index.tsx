@@ -1,15 +1,18 @@
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useRouter } from "next/router";
 
 type FormType = {
   first_name: string;
   last_name: string;
-  phone: number;
+  phone: number | null;
   invite: string;
 };
 
 export default function Form() {
+  const router = useRouter();
+
   const schema = yup.object().shape({
     first_name: yup.string().required("Nome obrigatório"),
     last_name: yup.string().required("Sobrenome obrigatório"),
@@ -24,7 +27,12 @@ export default function Form() {
 
   const onSubmitHandler = (data: FormType) => {
     console.log(data);
-    reset(data);
+    reset({
+      first_name: "",
+      last_name: "",
+      phone: null,
+      invite: "",
+    });
   };
 
   return (
