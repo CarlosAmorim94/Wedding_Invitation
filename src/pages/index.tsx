@@ -5,6 +5,7 @@ import { MenuMobile } from "../components/Header/MenuMobile";
 import { Hero } from "../components/Hero";
 import { History } from "../components/History";
 import { Localization } from "../components/Localization";
+import { Message } from "../components/Message";
 import { Presence } from "../components/Presense";
 
 export default function Home() {
@@ -24,7 +25,8 @@ export default function Home() {
         <Calendar />
         <div className="w-full border-t border-gold" />
         <Localization />
-        <div>form de mensagem</div>
+        <div className="w-full border-t border-gold" />
+        <Message />
       </div>
     </main>
   );

@@ -22,7 +22,7 @@ export function MenuMobile() {
       />
       <ul className="flex flex-col m-auto h-full w-full justify-center items-center gap-10">
         <Link
-          href="#home"
+          href="/"
           className="w-11/12 py-4 px-6 rounded-2xl bg-transparent-mobile flex justify-center items-center"
           onClick={() => {
             mobile?.setMenuOpen(false);

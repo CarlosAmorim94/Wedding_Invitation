@@ -10,13 +10,13 @@ export function Header() {
 
   return (
     <header className="w-full flex flex-row justify-between items-center py-5">
-      <div className="w-1/5 md:w-logo">
+      <Link className="w-1/5 md:w-logo" href="/">
         <Image src={Alianca} alt="Simbolo escrito 'Danielle e Carlos'" />
-      </div>
+      </Link>
 
       <nav className="hidden md:block">
         <ul className="flex flex-row justify-between items-center gap-4">
-          <Link href="#home">
+          <Link href="/">
             <li className="text-xl text-white hover:text-gold font-bold drop-shadow-lg shadow-black">
               Home
             </li>

@@ -11,8 +11,6 @@ type FormType = {
 };
 
 export const Form = () => {
-  const router = useRouter();
-
   const schema = yup.object().shape({
     first_name: yup.string().required("Nome obrigatório"),
     last_name: yup.string().required("Sobrenome obrigatório"),
@@ -36,85 +34,39 @@ export const Form = () => {
   };
 
   return (
-    <div id="confirm">
+    <div
+      id="confirm"
+      className="w-full flex flex-col justify-center items-center"
+    >
       <section className="flex w-full flex-col justify-center items-center mt-5 mb-5">
         <h2 className="font-wedding  text-white drop-shadow-lg shadow-black text-4xl md:text-6xl">
           Confirmação de presença
         </h2>
       </section>
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <div className="grid gap-6 mb-6 md:grid-cols-2">
-          <div>
-            <label
-              htmlFor="first_name"
-              className="block mb-2 font-bold text-base text-gray-800 drop-shadow-lg shadow-black "
-            >
-              Primeiro nome
-            </label>
-            <input
-              type="text"
-              id="first_name"
-              className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
-              placeholder="Ex: Carlos, Ex: Danielle"
-              {...register("first_name", { required: true })}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="last_name"
-              className="block mb-2 font-bold text-base text-gray-800 drop-shadow-lg shadow-black "
-            >
-              Sobrenome
-            </label>
-            <input
-              type="text"
-              id="last_name"
-              className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
-              placeholder="Ex: Amorim"
-              {...register("last_name", { required: true })}
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="phone"
-              className="block mb-2 font-bold text-base text-gray-800 drop-shadow-lg shadow-black "
-            >
-              Celular/Telefone
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
-              placeholder="Ex: (14)98765-4321"
-              {...register("phone", { required: true })}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="inviteType"
-              className="block mb-2 font-bold text-base text-gray-800 drop-shadow-lg shadow-black "
-            >
-              Tipo de Convidado
-            </label>
-            <select
-              id="inviteType"
-              className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
-              {...register("invite", { required: true })}
-            >
-              <option selected> </option>
-              <option value="padrinho/madrinha">Padrinho/Madrinha</option>
-              <option value="convidado">Convidado</option>
-            </select>
-          </div>
-
-          <button
-            type="submit"
-            className="md:col-span-2 mx-auto text-white drop-shadow-lg shadow-black bg-gold hover:bg-amber-500 rounded-lg text-xl w-full md:w-1/3 px-5 py-2.5 text-center"
-          >
-            Submit
-          </button>
-        </div>
+      <form
+        onSubmit={handleSubmit(onSubmitHandler)}
+        className="w-full md:w-[800px] flex flex-col gap-5"
+      >
+        <label>
+          Nome:
+          <input
+            type="text"
+            className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
+          />
+        </label>
+        <label>
+          Nome:
+          <input
+            type="text"
+            className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
+          />
+        </label>
+        <button
+          type="submit"
+          className="mx-auto text-white drop-shadow-lg shadow-black bg-gold hover:bg-amber-500 rounded-lg text-xl w-full md:w-1/3 px-5 py-2.5 text-center"
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
