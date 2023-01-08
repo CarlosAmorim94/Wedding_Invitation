@@ -10,7 +10,7 @@ type FormType = {
   invite: string;
 };
 
-export default function Form() {
+export const Form = () => {
   const router = useRouter();
 
   const schema = yup.object().shape({
@@ -118,4 +118,4 @@ export default function Form() {
       </form>
     </div>
   );
-}
+};

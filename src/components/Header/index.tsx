@@ -31,6 +31,16 @@ export function Header() {
               Confirmar
             </li>
           </Link>
+          <Link href="#gift">
+            <li className="text-xl text-white hover:text-gold font-bold drop-shadow-lg shadow-black">
+              Lista de presentes
+            </li>
+          </Link>
+          <Link href="#calendar">
+            <li className="text-xl text-white hover:text-gold font-bold drop-shadow-lg shadow-black">
+              Data e Local
+            </li>
+          </Link>
         </ul>
       </nav>
       <TiThMenu

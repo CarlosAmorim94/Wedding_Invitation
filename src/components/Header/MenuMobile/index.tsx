@@ -48,6 +48,24 @@ export function MenuMobile() {
         >
           <li className="text-gold text-3xl font-bold">Confirmar</li>
         </Link>
+        <Link
+          href="#gift"
+          className="w-11/12 py-4 px-6 rounded-2xl bg-transparent-mobile flex justify-center items-center"
+          onClick={() => {
+            mobile?.setMenuOpen(false);
+          }}
+        >
+          <li className="text-gold text-3xl font-bold">Lista de presentes</li>
+        </Link>
+        <Link
+          href="#calendar"
+          className="w-11/12 py-4 px-6 rounded-2xl bg-transparent-mobile flex justify-center items-center"
+          onClick={() => {
+            mobile?.setMenuOpen(false);
+          }}
+        >
+          <li className="text-gold text-3xl font-bold">Data e Local</li>
+        </Link>
       </ul>
     </div>
   );
