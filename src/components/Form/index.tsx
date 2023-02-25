@@ -101,7 +101,7 @@ export const Form = () => {
       </form>
       {banner ? (
         <div className="w-full flex mt-4 flex-col gap-4 justify-center items-center">
-          <h2 className="font-sans text-white drop-shadow-lg shadow-black text-center text-3xl md:text-6xl">
+          <h2 className="font-serif text-white drop-shadow-lg shadow-black text-center text-3xl md:text-6xl">
             Confirmação enviada com sucesso!
           </h2>
         </div>

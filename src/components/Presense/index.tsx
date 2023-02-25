@@ -10,6 +10,9 @@ export const Presence = () => {
       <h2 className="font-wedding text-5xl md:text-7xl text-white drop-shadow-lg shadow-black mb-5">
         Confirme sua Presença
       </h2>
+      <h3 className="font-serif md:w-1/2 md:text-center text-white drop-shadow-lg shadow-black font-semibold text-xl md:text-2xl bg-clip-text">
+        Obs: Não esqueça de levar sua própria bebida(alcoolica) para a festa!
+      </h3>
 
       <Link
         href="/confirmar"
