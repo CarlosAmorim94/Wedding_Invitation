@@ -3,7 +3,7 @@ import React from "react";
 export const Message = () => {
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <h2 className="font-wedding text-center text-5xl md:text-7xl text-white drop-shadow-lg shadow-black mb-5">
+      <h2 className="font-alex text-center text-5xl md:text-7xl text-white drop-shadow-lg shadow-black mb-5">
         Escreva uma mensagem para os noivos...
       </h2>
       <form

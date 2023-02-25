@@ -45,7 +45,7 @@ export const Form = () => {
   return (
     <div id="confirm" className="w-full flex flex-col items-center">
       <section className="flex w-full flex-col justify-center items-center mt-5 mb-5 gap-6">
-        <h2 className="font-wedding  text-white drop-shadow-lg shadow-black text-5xl md:text-6xl">
+        <h2 className="font-alex  text-white drop-shadow-lg shadow-black text-5xl md:text-6xl">
           Confirmação de presença
         </h2>
         <h3 className="text-white drop-shadow-lg shadow-black text-2xl md:text-2xl">

@@ -7,10 +7,10 @@ export const Calendar = () => {
       id="calendar"
       className="flex flex-col items-center justify-center relative"
     >
-      <p className="font-wedding text-5xl md:text-7xl text-white drop-shadow-lg shadow-black mb-5">
+      <p className="font-alex text-5xl md:text-7xl text-white drop-shadow-lg shadow-black mb-5">
         Nosso grande dia!
       </p>
-      <p className="font-wedding text-xl md:text-5xl text-white drop-shadow-lg shadow-black mb-5 absolute top-32">
+      <p className="font-alex text-xl md:text-5xl text-white drop-shadow-lg shadow-black mb-5 absolute top-32">
         19/ago/2023
       </p>
       <Image

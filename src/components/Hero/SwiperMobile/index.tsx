@@ -9,6 +9,7 @@ import Images7 from "/public/img/RIP_6244.jpg";
 import Images8 from "/public/img/RIP_6248.jpg";
 import Images9 from "/public/img/RIP_6258.jpg";
 import Images10 from "/public/img/RIP_6266.jpg";
+import Images11 from "/public/img/Juntos.jpeg";
 
 import React, { useRef, useState } from "react";
 // Import Swiper React components

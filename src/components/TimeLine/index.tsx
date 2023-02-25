@@ -10,11 +10,11 @@ import Civil from "/public/img/RIP_6169.jpg";
 export function TimeLine() {
   return (
     <div id="history" className="w-full">
-      <section className="flex w-full flex-col justify-center items-center mt-9">
-        <h2 className="font-wedding mb-3 text-white drop-shadow-lg shadow-black text-3xl md:text-5xl">
+      <section className="flex w-full flex-col justify-center items-center mt-2">
+        <h2 className="font-alex mb-3 text-white drop-shadow-lg shadow-black text-4xl md:text-5xl">
           Um resumo da nossa
         </h2>
-        <h2 className="font-wedding text-5xl md:text-9xl text-white drop-shadow-lg shadow-black mb-5">
+        <h2 className="font-alex text-5xl md:text-9xl text-white drop-shadow-lg shadow-black mb-5">
           História
         </h2>
       </section>

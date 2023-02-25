@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         sans: "serif",
         wedding: "Great Vibes, sans-serif",
+        alex: "Alex Brush, sans-serif",
       },
       width: {
         logo: "15%",

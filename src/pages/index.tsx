@@ -18,9 +18,9 @@ export default function Home() {
         <div className="w-full border-t border-gold" />
         <History />
         <div className="w-full border-t border-gold" />
-        <Presence />
-        <div className="w-full border-t border-gold" />
         <Gift />
+        <div className="w-full border-t border-gold" />
+        <Presence />
         <div className="w-full border-t border-gold" />
         <Calendar />
         <div className="w-full border-t border-gold" />

@@ -14,6 +14,10 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap"
+          rel="stylesheet"
+        />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
       </Head>
       <body>

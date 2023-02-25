@@ -55,7 +55,7 @@ export function MenuMobile() {
             mobile?.setMenuOpen(false);
           }}
         >
-          <li className="text-gold text-3xl font-bold">Lista de presentes</li>
+          <li className="text-gold text-3xl font-bold">Presentes</li>
         </Link>
         <Link
           href="#calendar"
