@@ -6,7 +6,7 @@ export const Localization = () => {
   return (
     <div
       id="local"
-      className=" w-full flex flex-col justify-center items-center gap-5"
+      className=" w-full text-center flex flex-col justify-center items-center gap-5"
     >
       <h2 className="font-alex text-6xl md:text-7xl text-white drop-shadow-lg shadow-black">
         Localização
@@ -37,7 +37,7 @@ export const Localization = () => {
       <div className="w-full border-t border-gold" />
       <div className="w-full flex flex-col md:flex-row justify-evenly items-center gap-5">
         <div className="w-full md:w-96 text-lg flex flex-col justify-center items-center text-white drop-shadow font-semibold shadow-black">
-          <h3>Festa</h3>
+          <h3 className="text-4xl">Festa</h3>
           <h4>Salão ADC Embraer</h4>
           <p className="mb-5">Av. Alcides Cagliari, Sem número</p>
           <Image src={ADC} alt="Image ADC" className="rounded-lg" />

@@ -43,12 +43,12 @@ export const Form = () => {
   };
 
   return (
-    <div id="confirm" className="w-full flex flex-col items-center">
+    <div id="confirm" className="w-full flex  flex-col items-center">
       <section className="flex w-full flex-col justify-center items-center mt-5 mb-5 gap-6">
-        <h2 className="font-alex  text-white drop-shadow-lg shadow-black text-5xl md:text-6xl">
+        <h2 className="font-alex text-center text-white drop-shadow-lg shadow-black text-5xl md:text-6xl">
           Confirmação de presença
         </h2>
-        <h3 className="text-white drop-shadow-lg shadow-black text-2xl md:text-2xl">
+        <h3 className="text-white text-center drop-shadow-lg shadow-black text-2xl md:text-2xl">
           Confirme seu nome e número de telefone, nossa assessora Maiara irá
           entrar em contato próximo da cerimônia.
         </h3>
