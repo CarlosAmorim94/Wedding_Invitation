@@ -3,6 +3,9 @@ import First from "/public/img/first.webp";
 import Tinder from "/public/img/OIP.webp";
 import Olho from "/public/img/olho.jpg";
 import Viagem from "/public/img/praia.png";
+import Casamento from "/public/img/Casamento.jpeg";
+import Juntos from "/public/img/Juntos.jpeg";
+import Civil from "/public/img/RIP_6169.jpg";
 
 export function TimeLine() {
   return (
@@ -49,18 +52,21 @@ export function TimeLine() {
             number={4}
             title="Morando juntos"
             text="O amor é tão grande que decidiram morar juntos em 11/2020"
+            img={Juntos}
           />
           <Box
             side="right"
             number={5}
             title="O pedido"
             text="No dia 19/07/21, Carlos pediu Danielle em casamento no Kyga, com muita comida japonesa!"
+            img={Casamento}
           />
           <Box
             side="left"
             number={6}
             title="Casamento civil"
             text="No dia 11/06/22 trocaram as alianças e realizaram o casamento no cívil"
+            img={Civil}
           />
           <Box
             side="right"
