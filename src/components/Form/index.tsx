@@ -2,20 +2,18 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/router";
+import { addDoc, collection, doc, getDoc } from "firebase/firestore";
+import { storage } from "../../services/firebase";
 
 type FormType = {
-  first_name: string;
-  last_name: string;
+  name: string;
   phone: number | null;
-  invite: string;
 };
 
 export const Form = () => {
   const schema = yup.object().shape({
-    first_name: yup.string().required("Nome obrigatório"),
-    last_name: yup.string().required("Sobrenome obrigatório"),
+    name: yup.string().required("Nome obrigatório"),
     phone: yup.number().required("Telefone obrigatório"),
-    invite: yup.string().required("Seecione o tipo"),
   });
 
   const { register, handleSubmit, formState, reset } = useForm<FormType>({
@@ -23,13 +21,19 @@ export const Form = () => {
   });
   const { errors } = formState;
 
-  const onSubmitHandler = (data: FormType) => {
-    console.log(data);
+  const onSubmitHandler = async (data: FormType, e: any) => {
+    e.preventDefault();
+    try {
+      await addDoc(collection(storage, "confirmacao"), {
+        name: data.name,
+        phone: data.phone,
+      });
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
     reset({
-      first_name: "",
-      last_name: "",
+      name: "",
       phone: null,
-      invite: "",
     });
   };
 
@@ -52,13 +56,15 @@ export const Form = () => {
           <input
             type="text"
             className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
+            {...register("name")}
           />
         </label>
         <label>
-          Nome:
+          Celular:
           <input
-            type="text"
+            type="number"
             className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
+            {...register("phone")}
           />
         </label>
         <button
