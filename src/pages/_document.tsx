@@ -2,8 +2,12 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="pt-BR">
       <Head>
+        <meta
+          name="description"
+          content="Você está sendo convidado para nosso casamento!"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
