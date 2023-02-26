@@ -71,7 +71,7 @@ export function TimeLine() {
           <Box
             side="right"
             number={7}
-            title="Lua de mel"
+            title="Primeira viagem"
             text="Uma viagem incrível e cheia de beleza, contemplando o amor e união"
             img={Viagem}
           />

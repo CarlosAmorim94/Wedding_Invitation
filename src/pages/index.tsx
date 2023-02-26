@@ -8,6 +8,7 @@ import { History } from "../components/History";
 import { Localization } from "../components/Localization";
 import { Message } from "../components/Message";
 import { Presence } from "../components/Presense";
+import { Footer } from "../components/Footer";
 
 export default function Home() {
   return (
@@ -31,6 +32,8 @@ export default function Home() {
         <Localization />
         <div className="w-full border-t border-gold" />
         <Message />
+
+        <Footer />
       </div>
     </main>
   );
