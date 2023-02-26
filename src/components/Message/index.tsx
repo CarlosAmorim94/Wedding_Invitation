@@ -1,15 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { addDoc, collection, getDoc, getDocs } from "firebase/firestore";
+import { storage } from "../../services/firebase";
+
+interface Messages {
+  name: string;
+  message: string;
+}
 
 export const Message = () => {
   const [loading, setLoading] = useState(false);
   const [banner, setBanner] = useState(false);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  // const [messageList, setMessageList] = useState<Messages[]>([]);
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const data = await getDocs(collection(storage, "messages"));
+  //     const test = data.forEach((doc) => {
+  //       console.log(`${doc.id} => ${doc.data()}`);
+  //     });
+  //     console.log("TESTE", test);
+  //     setMessageList(test);
+  //   };
+
+  //   getData();
+  // }, []);
 
   const onSubmitHandler = async () => {
     setLoading(true);
-    setBanner(true);
+    try {
+      await addDoc(collection(storage, "messages"), {
+        name: name,
+        message: message,
+      });
+      setBanner(true);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   };
+
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <h2 className="font-alex text-center text-5xl md:text-7xl text-white drop-shadow-lg shadow-black mb-5">
@@ -81,6 +111,7 @@ export const Message = () => {
           </h2>
         </div>
       ) : null}
+      {/* {messageList ? messageList.map((message) => <div>Teste</div>) : null} */}
     </div>
   );
 };
