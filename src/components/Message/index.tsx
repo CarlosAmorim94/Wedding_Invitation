@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { addDoc, collection, getDoc, getDocs } from "firebase/firestore";
 import { storage } from "../../services/firebase";
-
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 interface Messages {
   name: string;
   message: string;
@@ -10,34 +12,50 @@ interface Messages {
 export const Message = () => {
   const [loading, setLoading] = useState(false);
   const [banner, setBanner] = useState(false);
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-  // const [messageList, setMessageList] = useState<Messages[]>([]);
+  const [messageList, setMessageList] = useState<Messages[]>([]);
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const data = await getDocs(collection(storage, "messages"));
-  //     const test = data.forEach((doc) => {
-  //       console.log(`${doc.id} => ${doc.data()}`);
-  //     });
-  //     console.log("TESTE", test);
-  //     setMessageList(test);
-  //   };
+  type FormType = {
+    name: string;
+    message: string;
+  };
 
-  //   getData();
-  // }, []);
+  const schema = yup.object().shape({
+    name: yup.string().required("Nome obrigatório"),
+    message: yup.string().required("Mensagem obrigatória"),
+  });
 
-  const onSubmitHandler = async () => {
+  const { register, handleSubmit, reset } = useForm<FormType>({
+    resolver: yupResolver(schema),
+  });
+
+  useEffect(() => {
+    const userCollectionRef = collection(storage, "messages");
+    const getData = async () => {
+      const data = await getDocs(userCollectionRef);
+      //@ts-ignore
+      setMessageList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getData();
+  }, []);
+
+  const onSubmitHandler = async (data: FormType, e: any) => {
+    e.preventDefault();
     setLoading(true);
     try {
       await addDoc(collection(storage, "messages"), {
-        name: name,
-        message: message,
+        name: data.name,
+        message: data.message,
+      });
+      reset({
+        name: "",
+        message: "",
       });
       setBanner(true);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
+    setLoading(false);
   };
 
   return (
@@ -46,22 +64,15 @@ export const Message = () => {
         Escreva uma mensagem para os noivos...
       </h2>
       <form
-        action="https://formsubmit.co/carlos.av.amorim@gmail.com"
-        method="POST"
+        onSubmit={handleSubmit(onSubmitHandler)}
         className="w-full md:w-[800px] flex flex-col gap-5"
       >
-        <input
-          type="hidden"
-          name="_next"
-          value="https://casamentodaniellecarlos.vercel.app/"
-        />
         <label>
           Nome
           <input
             type="text"
             placeholder="Digite seu nome"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            {...register("name")}
             required
             className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
           />
@@ -69,8 +80,7 @@ export const Message = () => {
         <label>
           Mensagem
           <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            {...register("message")}
             placeholder="Digite uma mensagem para os noivos..."
             className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
             required
@@ -80,7 +90,6 @@ export const Message = () => {
         <button
           type="submit"
           className=" mx-auto text-white  font-semibold drop-shadow-lg shadow-black bg-gold hover:bg-amber-500 rounded-lg text-xl w-full md:w-1/3 px-5 py-2.5 text-center"
-          onClick={onSubmitHandler}
         >
           {loading ? (
             <svg
@@ -111,7 +120,25 @@ export const Message = () => {
           </h2>
         </div>
       ) : null}
-      {/* {messageList ? messageList.map((message) => <div>Teste</div>) : null} */}
+      <ul className="w-full flex flex-wrap justify-start gap-2 mt-5">
+        {messageList
+          ? messageList.map((message, index) => (
+              <li
+                key={index}
+                className="bg-gradient-to-r from-slate-50 to-gold rounded-lg shadow-xl w-full md:w-[30%] px-6 py-4 flex flex-col md:flex-row gap-4 items-start justify-center"
+              >
+                <div className="w-full flex flex-col items-start">
+                  <h3 className="mb-3 font-bold text-gray-800 text-xl">
+                    {message.name}:
+                  </h3>
+                  <p className="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">
+                    {message.message}
+                  </p>
+                </div>
+              </li>
+            ))
+          : null}
+      </ul>
     </div>
   );
 };
