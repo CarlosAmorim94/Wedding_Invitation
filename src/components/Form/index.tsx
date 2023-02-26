@@ -4,10 +4,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { addDoc, collection } from "firebase/firestore";
 import { storage } from "../../services/firebase";
 import { useState } from "react";
+import InputMask from "react-input-mask";
 
 type FormType = {
   name: string;
-  phone: number | null;
+  phone: string;
 };
 
 export const Form = () => {
@@ -16,7 +17,7 @@ export const Form = () => {
 
   const schema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
-    phone: yup.number().required("Telefone obrigatório"),
+    phone: yup.string().required("Telefone obrigatório"),
   });
 
   const { register, handleSubmit, reset } = useForm<FormType>({
@@ -37,7 +38,7 @@ export const Form = () => {
     }
     reset({
       name: "",
-      phone: null,
+      phone: "",
     });
     setLoading(false);
   };
@@ -67,8 +68,9 @@ export const Form = () => {
         </label>
         <label>
           Celular:
-          <input
-            type="number"
+          <InputMask
+            mask="(99)99999-9999"
+            //@ts-ignore
             className="bg-gray-50 border border-gold text-gray-800 text-sm rounded-lg block w-full p-2.5"
             {...register("phone")}
           />
